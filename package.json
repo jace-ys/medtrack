@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "method-override": "^3.0.0",
     "mongoose": "^5.2.12",
+    "npm": "^6.4.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
