@@ -1,0 +1,21 @@
+body {
+  padding-top: 70px;
+  font-family: Lato;
+}
+
+@media screen and (max-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
+
+.btn-primary {
+  background-color: #EF5350;
+  border: 1px solid #EF5350;
+  color: #FFFFFF;
+}
+
+.btn-primary:hover {
+  background-color: #D32F2F;
+  border: 1px solid #D32F2F;
+}

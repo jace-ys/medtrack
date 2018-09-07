@@ -21,7 +21,27 @@ app.use(flash());
 
 // Routes
 app.get("/", (req, res) => {
+	res.render("landing");
+});
+
+app.get("/signup", (req, res) => {
+	res.render("signup");
+});
+
+app.get("/login", (req, res) => {
+	res.render("login");
+});
+
+app.get("/home", (req, res) => {
 	res.render("home");
+});
+
+app.get("/shows", (req, res) => {
+	res.render("shows/index");
+});
+
+app.get("/shows/new", (req, res) => {
+	res.render("shows/new");
 });
 
 app.get("*", (req, res) => {
