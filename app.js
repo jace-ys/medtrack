@@ -19,13 +19,21 @@ app.use(bodyParser.json());
 app.use(methodOverride("_method"));
 app.use(flash());
 
+// MongoDB setup
+mongoose.connect(process.env.MLAB_URI, {useNewUrlParser: true});
+
+// Schemas
+const Staff = require("./models/staff");
+const Patient = require("./models/patient");
+const Log = require("./models/log");
+
 // Routes
 app.get("/", (req, res) => {
 	res.render("landing");
 });
 
-app.get("/signup", (req, res) => {
-	res.render("signup");
+app.get("/register", (req, res) => {
+	res.render("register");
 });
 
 app.get("/login", (req, res) => {
@@ -36,12 +44,12 @@ app.get("/home", (req, res) => {
 	res.render("home");
 });
 
-app.get("/shows", (req, res) => {
-	res.render("shows/index");
+app.get("/patients", (req, res) => {
+	res.render("patients/index");
 });
 
-app.get("/shows/new", (req, res) => {
-	res.render("shows/new");
+app.get("/patients/new", (req, res) => {
+	res.render("patients/new");
 });
 
 app.get("*", (req, res) => {

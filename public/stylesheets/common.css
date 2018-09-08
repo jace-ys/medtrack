@@ -1,21 +1,39 @@
 body {
-  padding-top: 70px;
+  padding-top: 74px;
   font-family: Lato;
 }
 
-@media screen and (max-width: 992px) {
-  body {
-    padding-top: 56px;
-  }
+nav .navbar-brand {
+  font-size: 2rem;
+}
+
+nav a {
+  color: #FFFFFF !important;
+}
+
+nav .navbar-nav a:hover {
+  color: #EF5350 !important;
 }
 
 .btn-primary {
-  background-color: #EF5350;
-  border: 1px solid #EF5350;
-  color: #FFFFFF;
+  background-color: #EF5350 !important;
+  border: 1px solid #EF5350 !important;
+  color: #FFFFFF !important;
 }
 
 .btn-primary:hover {
-  background-color: #D32F2F;
-  border: 1px solid #D32F2F;
+  background-color: #D32F2F !important;
+  border: 1px solid #D32F2F !important;
+}
+
+.content {
+  padding-top: 30px;
+}
+
+.content .form-control {
+  border: 1px solid #EF5350 !important;
+}
+
+.content p a:hover {
+  color: #EF5350 !important
 }
