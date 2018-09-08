@@ -37,3 +37,7 @@ nav .navbar-nav a:hover {
 .content p a:hover {
   color: #EF5350 !important
 }
+
+.card-img-top {
+  padding: 20px;
+}
