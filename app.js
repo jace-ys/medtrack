@@ -27,38 +27,15 @@ const Staff = require("./models/staff");
 const Patient = require("./models/patient");
 const Log = require("./models/log");
 
+// Require routes
+const baseRoutes = require("./routes/base");
+const	authRoutes = require("./routes/auth");
+const patientRoutes = require("./routes/patient");
+
 // Routes
-app.get("/", (req, res) => {
-	res.render("landing");
-});
-
-app.get("/register", (req, res) => {
-	res.render("register");
-});
-
-app.post("/register", (req, res) => {
-	res.redirect("/login");
-});
-
-app.get("/login", (req, res) => {
-	res.render("login");
-});
-
-app.post("/login", (req, res) => {
-	res.redirect("/home");
-});
-
-app.get("/home", (req, res) => {
-	res.render("home");
-});
-
-app.get("/patients", (req, res) => {
-	res.render("patients/index");
-});
-
-app.get("/patients/new", (req, res) => {
-	res.render("patients/new");
-});
+app.use(baseRoutes);
+app.use(authRoutes);
+app.use("/patients", patientRoutes);
 
 app.get("*", (req, res) => {
 	res.redirect("/");
