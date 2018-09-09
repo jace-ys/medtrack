@@ -20,7 +20,6 @@ router.get("/new", (req, res) => {
 router.post("/", async (req, res) => {
 	try {
 		let newPatient = await Patient.create(req.body);
-		console.log(newPatient);
 		res.redirect("/home");
 	} catch(err) {
 		console.log(err);
@@ -28,11 +27,11 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/:patient_id", (req, res) => {
-
+	res.render("patients/show");
 });
 
 router.get("/:patient_id/edit", (req, res) => {
-
+	res.render("patients/show");
 });
 
 router.put("/:patient_id", (req, res) => {

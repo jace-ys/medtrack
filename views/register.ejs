@@ -1,33 +1,33 @@
 <% include partials/header %>
-<div class="container content">
-  <div class="text-center">
-    <h1>Register</h1>
-    <p>Have an account? <a href="/login">Login!</a></p>
+  <div class="container content">
+    <div class="text-center">
+      <h1>Register</h1>
+      <p>Have an account? <a href="/login">Login!</a></p>
+    </div>
+    <form class="mx-auto col-12 col-md-8 col-lg-6" action="/register" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="staff[name]" placeholder="Name">
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select class="form-control" name="staff[role]" required>
+          <option selected disabled>Select role</option>
+          <option value="Doctor">Doctor</option>
+          <option value="Nurse">Nurse</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="staff[username]" placeholder="Username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="staff[password]" placeholder="Password">
+      </div>
+      <button class="btn btn-primary btn-block my-4" type="submit">Register</button>
+    </form>
   </div>
-  <form class="mx-auto col-12 col-md-8 col-lg-6" action="/register" method="POST">
-    <div class="form-group">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" name="staff[name]" placeholder="Name">
-    </div>
-    <div class="form-group">
-      <label for="role">Role</label>
-      <select class="form-control" name="staff[role]" required>
-        <option selected disabled>Select role</option>
-        <option value="Doctor">Doctor</option>
-        <option value="Nurse">Nurse</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input type="text" class="form-control" name="staff[username]" placeholder="Username">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" name="staff[password]" placeholder="Password">
-    </div>
-    <button class="btn btn-primary btn-block my-4" type="submit">Register</button>
-  </form>
-</div>
 
 <% include partials/scripts %>
 <% include partials/footer %>
