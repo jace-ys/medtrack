@@ -12,13 +12,22 @@
       <label for="photo">Photo</label>
       <input type="url" class="form-control" name="photo" placeholder="Patient's photo">
     </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="gender">Age</label>
+        <input type="number" class="form-control" name="age" placeholder="Patient's age">
+      </div>
+      <div class="col">
+        <label for="gender">Gender</label>
+        <select class="form-control" name="gender">
+          <option selected disabled>Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+    </div>
     <div class="form-group">
-      <label for="gender">Gender</label>
-      <select class="form-control" name="gender">
-        <option selected disabled>Select gender</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
+
     </div>
     <div class="form-group">
       <label for="ward">Ward</label>

@@ -12,10 +12,14 @@ router.get("/new", (req, res) => {
 	res.render("patients/new");
 });
 
-router.post("/", (req, res) => {
-	let newPatient = req.body;
-	console.log(newPatient);
-	res.redirect("/home");
+router.post("/", async (req, res) => {
+	try {
+		let newPatient = await Patient.create(req.body);
+		console.log(newPatient);
+		res.redirect("/home");
+	} catch(err) {
+		console.log(err);
+	}
 });
 
 router.get("/:patient_id", (req, res) => {

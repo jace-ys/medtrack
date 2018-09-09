@@ -1,93 +1,38 @@
 <% include ../partials/header %>
 <div class="container content">
-  <div class="text-center">
+  <div class="text-center mb-4">
     <h1>All Patients</h1>
   </div>
-  <div class="container content patient-grid">
-    <div class="card-deck mb-4">
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
+  <div class="patient-grid">
+    <div class="row">
+      <% for(let i = 0; i < 4; i++) { %>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="card border-danger">
+          <div class="card-header">Ward</div>
+          <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient Photo">
+          <div class="card-body">
+            <h5 class="card-title">Patient Name</h5>
+            <p class="card-text">Diagnosis</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Admitted on:</small>
+          </div>
         </div>
       </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
+      <div class="col-lg-3 col-md-6 col-12 mb-4">
+        <div class="card border-danger">
+          <div class="card-header">Ward</div>
+          <img class="card-img-top" src="https://image.flaticon.com/icons/svg/201/201634.svg" alt="Patient Photo">
+          <div class="card-body">
+            <h5 class="card-title">Patient Name</h5>
+            <p class="card-text">Diagnosis</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Admitted on:</small>
+          </div>
         </div>
       </div>
-    </div>
-    <%# Row 2 %>
-    <div class="card-deck mb-4">
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="https://image.flaticon.com/icons/svg/236/236832.svg" alt="Patient's Photo">
-        <div class="card-body">
-          <h5 class="card-title">Patient's Name</h5>
-          <p class="card-text">Patient's Diagnosis</p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last checkup:</small>
-        </div>
-      </div>
+      <% } %>
     </div>
   </div>
 </div>

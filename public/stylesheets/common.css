@@ -38,6 +38,10 @@ nav .navbar-nav a:hover {
   color: #EF5350 !important
 }
 
-.card-img-top {
+.patient-grid {
+  padding: 20px 0;
+}
+
+.patient-grid .card-img-top {
   padding: 20px;
 }
