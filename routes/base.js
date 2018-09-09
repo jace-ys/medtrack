@@ -9,8 +9,13 @@ router.get("/", (req, res) => {
 	res.render("landing");
 });
 
-router.get("/home", (req, res) => {
-	res.render("home");
+router.get("/home", async (req, res) => {
+	try {
+		let patients = await Patient.find();
+		res.render("home", {patients: patients});
+	} catch(err) {
+		console.log(err);
+	}
 });
 
 module.exports = router;

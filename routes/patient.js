@@ -4,8 +4,13 @@ const Log = require("../models/log");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-	res.render("patients/index");
+router.get("/", async (req, res) => {
+	try {
+		let patients = await Patient.find();
+		res.render("patients/index", {patients: patients});
+	} catch(err) {
+		console.log(err);
+	}
 });
 
 router.get("/new", (req, res) => {

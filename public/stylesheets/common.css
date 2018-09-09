@@ -43,5 +43,9 @@ nav .navbar-nav a:hover {
 }
 
 .patient-grid .card-img-top {
-  padding: 20px;
+  padding: 20px 20px 0 20px;
+}
+
+.card, .card h5, .card small{
+  font-weight: 700;
 }
