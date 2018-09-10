@@ -30,12 +30,14 @@ const Log = require("./models/log");
 // Require routes
 const baseRoutes = require("./routes/base");
 const	authRoutes = require("./routes/auth");
-const patientRoutes = require("./routes/patient");
+const patientRoutes = require("./routes/patients");
+const logRoutes = require("./routes/logs");
 
 // Routes
 app.use(baseRoutes);
 app.use(authRoutes);
 app.use("/patients", patientRoutes);
+app.use("/patients/:patient_id/logs", logRoutes);
 
 app.get("*", (req, res) => {
 	res.redirect("/");

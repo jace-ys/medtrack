@@ -29,6 +29,8 @@ router.post("/", async (req, res) => {
 router.get("/:patient_id", async (req, res) => {
 	try {
 		let patient = await Patient.findOne({_id: req.params.patient_id});
+		// let prev = await Patient.findOne({_id: {$lt: req.params.patient_id}}).sort({_id: -1}).exec();
+		// let next = await Patient.findOne({_id: {$gt: req.params.patient_id}}).sort({_id: 1}).exec();
 		res.render("patients/show", {patient: patient});
 	} catch(err) {
 		console.log(err);
