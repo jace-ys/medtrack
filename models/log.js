@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const logSchema = new mongoose.Schema({
   text: String,
   createdAt: { type: Date, default: Date.now },
-  doctor: {
+  submittedBy: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Staff"

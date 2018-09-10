@@ -15,6 +15,10 @@ nav .navbar-nav a:hover {
   color: #EF5350 !important;
 }
 
+textarea {
+  resize: none;
+}
+
 .content {
   padding-top: 30px;
 }
