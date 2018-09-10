@@ -1,6 +1,33 @@
 <% include ../partials/header %>
 
-
+  <div class="container content">
+    <div class="card border-danger mb-4">
+      <h5 class="card-header"><%= patient.name %></h5>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="img-section">
+            <img class="card-img" src="<%= patient.photo %>" alt="Patient's photo">
+            <a class="mt-4 btn btn-sm btn-block btn-danger" href="/patients/<%= patient._id %>/edit">Edit</a>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <ul class="list-unstyled">
+              <li><p class="card-text"><strong>Name:</strong> <%= patient.name %></p></li>
+              <li><p class="card-text"><strong>Age:</strong> <%= patient.age %></p></li>
+              <li><p class="card-text"><strong>Gender:</strong> <%= patient.gender %></p></li>
+            </ul>
+            <ul class="list-unstyled">
+              <li><p class="card-text"><strong>Ward:</strong> <%= patient.ward %></p></li>
+              <li><p class="card-text"><strong>Admitted on:</strong> <%= patient.admitted.toDateString() %></p></li>
+              <li><p class="card-text"><strong>Last check-up:</strong> <%= patient.admitted.toDateString() %></p></li>
+            </ul>
+            <p><strong>Diagnosis:</strong> <%= patient.diagnosis %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <% include ../partials/scripts %>
 <% include ../partials/footer %>

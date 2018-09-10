@@ -42,10 +42,14 @@ nav .navbar-nav a:hover {
   padding: 20px 0;
 }
 
-.patient-grid .card-img-top {
+.card-img-top {
   padding: 20px 20px 0 20px;
 }
 
-.card, .card h5, .card small{
+.card .img-section {
+  margin: 20px;
+}
+
+.card .card-header, .card h5, .card small{
   font-weight: 700;
 }
