@@ -1,6 +1,47 @@
 <% include ../partials/header %>
-
-
+  <div class="container content">
+    <div class="text-center">
+      <h1>Edit Patient Details</h1>
+    </div>
+    <form class="mx-auto mt-4 col-12 col-md-8 col-lg-6" action="/patients/<%= patient._id %>?_method=PUT" method="POST">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" placeholder="Name" value="<%= patient.name %>">
+      </div>
+      <div class="form-group">
+        <label for="photo">Photo</label>
+        <input type="url" class="form-control" name="photo" placeholder="Photo" value="<%= patient.photo %>">
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col">
+            <label for="gender">Age</label>
+            <input type="number" class="form-control" name="age" placeholder="Age" value="<%= patient.age %>">
+          </div>
+          <div class="col">
+            <label for="gender">Gender</label>
+            <select class="form-control" name="gender">
+              <option disabled>Select gender</option>
+              <option value="Male" <%= patient.gender === "Male" ? "selected" : "" %>>Male</option>
+              <option value="Female" <%= patient.gender === "Female" ? "selected" : "" %>>Female</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="ward">Ward</label>
+        <input type="text" class="form-control" name="ward" placeholder="Ward" value="<%= patient.ward %>">
+      </div>
+      <div class="form-group">
+        <label for="diagnosis">Diagnosis</label>
+        <textarea type="text" class="form-control" name="diagnosis" rows="3" placeholder="Enter diagnosis here"><%= patient.diagnosis %></textarea>
+      </div>
+      <button class="btn btn-primary btn-block" type="submit">Submit</button>
+    </form>
+    <form class="mx-auto mt-2 mb-4 col-12 col-md-8 col-lg-6" action="/patients/<%= patient._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-warning btn-block" type="submit">Delete</button>
+    </form>
+  </div>
 
 <% include ../partials/scripts %>
 <% include ../partials/footer %>

@@ -1,22 +1,22 @@
 <% include ../partials/header %>
   <div class="container content">
     <div class="text-center">
-      <h1>New Patient</h1>
+      <h1>New Patient Details</h1>
     </div>
     <form class="mx-auto mt-4 col-12 col-md-8 col-lg-6" action="/patients" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="name" placeholder="Patient's name">
+        <input type="text" class="form-control" name="name" placeholder="Name">
       </div>
       <div class="form-group">
         <label for="photo">Photo</label>
-        <input type="url" class="form-control" name="photo" placeholder="Patient's photo">
+        <input type="url" class="form-control" name="photo" placeholder="Photo">
       </div>
       <div class="form-group">
         <div class="form-row">
           <div class="col">
             <label for="gender">Age</label>
-            <input type="number" class="form-control" name="age" placeholder="Patient's age">
+            <input type="number" class="form-control" name="age" placeholder="Age">
           </div>
           <div class="col">
             <label for="gender">Gender</label>
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <label for="ward">Ward</label>
-        <input type="text" class="form-control" name="ward" placeholder="Ward name">
+        <input type="text" class="form-control" name="ward" placeholder="Ward">
       </div>
       <div class="form-group">
         <label for="diagnosis">Diagnosis</label>
@@ -39,6 +39,6 @@
       <button class="btn btn-primary btn-block my-4" type="submit">Submit</button>
     </form>
   </div>
-  
+
 <% include ../partials/scripts %>
 <% include ../partials/footer %>

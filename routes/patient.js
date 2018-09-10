@@ -26,20 +26,40 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.get("/:patient_id", (req, res) => {
-	res.render("patients/show");
+router.get("/:patient_id", async (req, res) => {
+	try {
+		let patient = await Patient.findOne({_id: req.params.patient_id});
+		res.render("patients/show", {patient: patient});
+	} catch(err) {
+		console.log(err);
+	}
 });
 
-router.get("/:patient_id/edit", (req, res) => {
-	res.render("patients/show");
+router.get("/:patient_id/edit", async (req, res) => {
+	try {
+		let patient = await Patient.findOne({_id: req.params.patient_id});
+		res.render("patients/edit", {patient: patient});
+	} catch(err) {
+		console.log(err);
+	}
 });
 
-router.put("/:patient_id", (req, res) => {
-
+router.put("/:patient_id", async (req, res) => {
+	try {
+		let updatedPatient = await Patient.findOneAndUpdate({_id: req.params.patient_id}, req.body);
+		res.redirect(`/patients/${updatedPatient._id}`);
+	} catch(err) {
+		console.log(err);
+	}
 });
 
-router.delete("/:patient_id", (req, res) => {
-
+router.delete("/:patient_id", async (req, res) => {
+	try {
+		await Patient.deleteOne({_id: req.params.patient_id});
+		res.redirect("/home");
+	} catch(err) {
+		console.log(err);
+	}
 });
 
 module.exports = router;
