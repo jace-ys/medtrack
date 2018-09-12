@@ -32,27 +32,18 @@
     <div class="card border-danger mb-2 log-section">
       <h5 class="card-header bg-danger text-white col-12">Patient Logs</h5>
       <ul class="list-group list-group-flush">
+        <% for(let i = 0; i < patient.logs.length; i++) { %>
+        <% let log = patient.logs[i] %>
         <li class="list-group-item list-group-item-primary">
-          <p>Cras justo odio</p>
+          <p><%= log.content %></p>
           <small class="text-muted">Submitted by: Jace</small><br>
-          <small class="text-muted"><%= patient.admitted.toDateString() %>, <%= patient.admitted.toLocaleTimeString() %></small>
-          <a href="/patients/<%= patient._id %>/logs/id/edit"><i class="fa fa-edit float-right text-danger"></i></a>
+          <small class="text-muted"><%= log.createdAt.toDateString() %>, <%= log.createdAt.toLocaleTimeString() %></small>
+          <a href="/patients/<%= patient._id %>/logs/<%= log._id %>/edit"><i class="fa fa-edit float-right text-danger"></i></a>
         </li>
-        <li class="list-group-item list-group-item-warning">
-          <p>Cras justo odio</p>
-          <small class="text-muted">Submitted by: Jace</small><br>
-          <small class="text-muted"><%= patient.admitted.toDateString() %>, <%= patient.admitted.toLocaleTimeString() %></small>
-          <a href="/patients/<%= patient._id %>/logs/id/edit"><i class="fa fa-edit float-right text-danger"></i></a>
-        </li>
-        <li class="list-group-item list-group-item-primary">
-          <p>Cras justo odio</p>
-          <small class="text-muted">Submitted by: Jace</small><br>
-          <small class="text-muted"><%= patient.admitted.toDateString() %>, <%= patient.admitted.toLocaleTimeString() %></small>
-          <a href="/patients/<%= patient._id %>/logs/id/edit"><i class="fa fa-edit float-right text-danger"></i></a>
-        </li>
+        <% } %>
       </ul>
     </div>
-    <form class="mb-4" action="/patients/5b9555d99c1c524c58ae8694/logs" method="POST">
+    <form class="mb-4" action="/patients/<%= patient._id %>/logs" method="POST">
       <textarea type="text" class="form-control" name="content" rows="2" resize="false" placeholder="New entry"></textarea>
       <button class="btn btn-danger btn-block mt-2" type="submit">Submit</button>
     </form>

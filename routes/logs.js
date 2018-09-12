@@ -17,15 +17,35 @@ router.post("/", async (req, res) => {
 });
 
 router.get("/:log_id/edit", async (req, res) => {
-  res.render("logs/edit");
+  try {
+    let patient = await Patient.findOne({_id: req.params.patient_id});
+    let log = await Log.findOne({_id: req.params.log_id});
+    res.render("logs/edit", {patient: patient, log: log});
+  } catch(err) {
+    console.log(err);
+  }
 });
 
 router.put("/:log_id", async (req, res) => {
-  console.log("PUT edit log");
+  try {
+    let patient = await Patient.findOne({_id: req.params.patient_id});
+    let log = await Log.findOneAndUpdate({_id: req.params.log_id}, req.body);
+    res.redirect(`/patients/${req.params.patient_id}`);
+  } catch(err) {
+    console.log(err);
+  }
 });
 
 router.delete("/:log_id", async (req, res) => {
-  console.log("Delete log");
+  try {
+    await Patient.findOneAndUpdate({_id: req.params.patient_id}, { $pull:
+      { logs: req.params.log_id }
+    });
+    await Log.deleteOne({_id: req.params.log_id});
+    res.redirect(`/patients/${req.params.patient_id}`);
+  } catch(err) {
+    console.log(err);
+  }
 });
 
 module.exports = router;
