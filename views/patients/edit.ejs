@@ -36,7 +36,7 @@
         <label for="diagnosis">Diagnosis</label>
         <textarea type="text" class="form-control" name="diagnosis" rows="3" placeholder="Enter diagnosis here"><%= patient.diagnosis %></textarea>
       </div>
-      <button class="btn btn-primary btn-block" type="submit">Submit</button>
+      <button class="btn btn-danger btn-block" type="submit">Submit</button>
     </form>
     <form class="mx-auto mt-2 mb-4 col-12 col-md-8 col-lg-6" action="/patients/<%= patient._id %>?_method=DELETE" method="POST">
       <button class="btn btn-warning btn-block" type="submit">Delete</button>

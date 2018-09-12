@@ -2,14 +2,22 @@ const Staff = require("../models/staff");
 const Patient = require("../models/patient");
 const Log = require("../models/log");
 const express = require("express");
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 
-router.post("/new", async (req, res) => {
-  console.log("New log");
+router.post("/", async (req, res) => {
+  try {
+    let patient = await Patient.findOne({_id: req.params.patient_id});
+    let log = await Log.create(req.body);
+    patient.logs.push(log);
+    await patient.save();
+    res.redirect(`/patients/${req.params.patient_id}`);
+  } catch(err) {
+    console.log(err);
+  }
 });
 
 router.get("/:log_id/edit", async (req, res) => {
-  console.log("GET edit log");
+  res.render("logs/edit");
 });
 
 router.put("/:log_id", async (req, res) => {

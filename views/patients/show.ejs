@@ -8,11 +8,11 @@
         <div class="col-md-3">
           <div class="img-section">
             <img class="card-img" src="<%= patient.photo %>" alt="Patient's photo">
-            <a class="mt-4 btn btn-sm btn-block btn-danger" href="/patients/<%= patient._id %>/edit">Edit</a>
+            <a class="mt-4 btn btn-sm btn-block btn-warning" href="/patients/<%= patient._id %>/edit">Edit</a>
           </div>
         </div>
         <div class="col-md-9">
-          <div class="card-body">
+          <div class="card-body text-section">
             <ul class="list-unstyled">
               <li><p class="card-text"><strong>Name:</strong> <%= patient.name %></p></li>
               <li><p class="card-text"><strong>Age:</strong> <%= patient.age %></p></li>
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="card border-danger mb-4 patient-log">
+    <div class="card border-danger mb-2 log-section">
       <h5 class="card-header bg-danger text-white col-12">Patient Logs</h5>
       <ul class="list-group list-group-flush">
         <li class="list-group-item list-group-item-primary">
@@ -52,9 +52,9 @@
         </li>
       </ul>
     </div>
-    <form class="mb-4" action="/patients/<%= patient._id %>/logs/new" method="POST">
-      <textarea type="text" class="form-control" name="log" rows="2" resize="false" placeholder="Enter new log"></textarea>
-      <button class="btn btn-danger btn-block mt-2" type="submit" name="button">Submit</button>
+    <form class="mb-4" action="/patients/5b9555d99c1c524c58ae8694/logs" method="POST">
+      <textarea type="text" class="form-control" name="content" rows="2" resize="false" placeholder="New entry"></textarea>
+      <button class="btn btn-danger btn-block mt-2" type="submit">Submit</button>
     </form>
   </div>
 

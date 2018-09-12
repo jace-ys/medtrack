@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const logSchema = new mongoose.Schema({
-  text: String,
+  content: String,
   createdAt: { type: Date, default: Date.now },
   submittedBy: {
     id: {
