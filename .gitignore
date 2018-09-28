@@ -63,3 +63,5 @@ typings/
 # Docker files
 Dockerfile
 .dockerignore
+
+.DS_STORE
