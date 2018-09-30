@@ -15,11 +15,10 @@ router.post("/register", (req, res) => {
 	 Staff.register(newStaff, req.body.password, function(err,user) {
 			 if(err){
 					 console.log(err);
-					 return res.render("home");
+					 return res.redirect("/");
 			 }
 			 //then loging them in using passport.authenticate (2)
 			 passport.authenticate("local", { session: false })(req, res, () => {
-				 req.flash("success", "Account created successfully! You can now log in.");
 				 res.redirect("/login");
 		});
 	 }

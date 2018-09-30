@@ -7,11 +7,11 @@
     <form class="mx-auto col-12 col-md-8 col-lg-6" action="/register" method="POST">
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" name="staff[name]" placeholder="Name">
+        <input type="text" class="form-control" name="name" placeholder="Name">
       </div>
       <div class="form-group">
         <label for="role">Role</label>
-        <select class="form-control" name="staff[role]" required>
+        <select class="form-control" name="role" required>
           <option selected disabled>Select role</option>
           <option value="Doctor">Doctor</option>
           <option value="Nurse">Nurse</option>
@@ -19,11 +19,11 @@
       </div>
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="staff[username]" placeholder="Username">
+        <input type="text" class="form-control" name="username" placeholder="Username">
       </div>
       <div class="form-group">
         <label for="password">Password</label>
-        <input type="password" class="form-control" name="staff[password]" placeholder="Password">
+        <input type="password" class="form-control" name="password" placeholder="Password">
       </div>
       <button class="btn btn-danger btn-block my-4" type="submit">Register</button>
     </form>
