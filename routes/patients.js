@@ -4,6 +4,16 @@ const Log = require("../models/log");
 const express = require("express");
 const router = express.Router();
 
+//middleware to check if user is logged in
+function isLoggedIn(req,res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+    res.redirect("/");
+
+}
+
 router.get("/", async (req, res) => {
 	try {
 		let patients = await Patient.find();

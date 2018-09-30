@@ -4,6 +4,16 @@ const Log = require("../models/log");
 const express = require("express");
 const router = express.Router({mergeParams: true});
 
+//middleware to check if user is logged in
+function isLoggedIn(req,res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+    res.redirect("/");
+
+}
+
 router.post("/", async (req, res) => {
   try {
     let patient = await Patient.findOne({_id: req.params.patient_id});
