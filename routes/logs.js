@@ -30,7 +30,7 @@ router.get("/:log_id/edit", async (req, res) => {
   try {
     let patient = await Patient.findOne({_id: req.params.patient_id});
     let log = await Log.findOne({_id: req.params.log_id});
-    res.render("logs/edit", {patient: patient, log: log});
+    res.render("patient_logs/edit", {patient: patient, log: log});
   } catch(err) {
     console.log(err);
   }
