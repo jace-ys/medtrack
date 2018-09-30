@@ -41,6 +41,12 @@ passport.use(new localStrategy(Staff.authenticate()));
 passport.serializeUser(Staff.serializeUser());
 passport.deserializeUser(Staff.deserializeUser());
 
+//this needs to be put before all routes
+//middleware so that req.user will be available in every single page
+app.use(function(req,res,next){
+   res.locals.currentUser = req.user;
+    next();
+});
 
 // Require routes
 const baseRoutes = require("./routes/base");
@@ -55,7 +61,7 @@ app.use("/patients", patientRoutes);
 app.use("/patients/:patient_id/logs", logRoutes);
 
 
-//this needs to be put before auth routes?
+//this needs to be put before auth routes
 //middleware so that req.user will be available in every single template
 app.use(function(req,res,next){
    res.locals.currentUser = req.user;

@@ -35,8 +35,8 @@ router.get("/login", (req, res) => {
 //using middleware to call authenticate method
 router.post("/login", passport.authenticate("local",
     {
-        successRedirect: "/",
-        failureRedirect: "/"
+        successRedirect: "/home",
+        failureRedirect: "/login"
     }
     ), function(req,res){
 });
