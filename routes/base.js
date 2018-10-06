@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
 });
 
 // Middleware to check if user is logged in
-function isLoggedIn(req,res, next) {
+function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) {
     next();
   } else {
