@@ -4,7 +4,17 @@ const Log = require("../models/log");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+//middleware to check if user is logged in
+function isLoggedIn(req,res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+
+    res.redirect("/");
+
+}
+
+router.get("/", isLoggedIn, async (req, res) => {
 	try {
 		let patients = await Patient.find();
 		res.render("patients/index", {patients: patients});
@@ -13,11 +23,11 @@ router.get("/", async (req, res) => {
 	}
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn, (req, res) => {
 	res.render("patients/new");
 });
 
-router.post("/", async (req, res) => {
+router.post("/", isLoggedIn, async (req, res) => {
 	try {
 		let newPatient = await Patient.create(req.body);
 		res.redirect("/home");
@@ -26,7 +36,7 @@ router.post("/", async (req, res) => {
 	}
 });
 
-router.get("/:patient_id", async (req, res) => {
+router.get("/:patient_id", isLoggedIn, async (req, res) => {
 	try {
 		let patient = await Patient.findOne({_id: req.params.patient_id}).populate({
 			path: "logs",
@@ -40,7 +50,7 @@ router.get("/:patient_id", async (req, res) => {
 	}
 });
 
-router.get("/:patient_id/edit", async (req, res) => {
+router.get("/:patient_id/edit", isLoggedIn, async (req, res) => {
 	try {
 		let patient = await Patient.findOne({_id: req.params.patient_id});
 		res.render("patients/edit", {patient: patient});
@@ -49,7 +59,7 @@ router.get("/:patient_id/edit", async (req, res) => {
 	}
 });
 
-router.put("/:patient_id", async (req, res) => {
+router.put("/:patient_id", isLoggedIn, async (req, res) => {
 	try {
 		let updatedPatient = await Patient.findOneAndUpdate({_id: req.params.patient_id}, req.body);
 		res.redirect(`/patients/${updatedPatient._id}`);
@@ -58,7 +68,7 @@ router.put("/:patient_id", async (req, res) => {
 	}
 });
 
-router.delete("/:patient_id", async (req, res) => {
+router.delete("/:patient_id", isLoggedIn, async (req, res) => {
 	try {
 		await Patient.deleteOne({_id: req.params.patient_id});
 		res.redirect("/home");
