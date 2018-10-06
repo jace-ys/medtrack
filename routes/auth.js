@@ -1,49 +1,41 @@
+const passport = require("passport");
 const express = require("express");
 const Staff = require("../models/staff");
 const router = express.Router();
-//Passport setup
-const passport = require("passport");
 
 router.get("/register", (req, res) => {
 	res.render("register");
 });
 
-
-router.post("/register", (req, res) => {
-	//making a new user (1)
-	 var newStaff = new Staff({username : req.body.username});
-	 Staff.register(newStaff, req.body.password, function(err,user) {
-			 if(err){
-					 console.log(err);
-					 return res.redirect("/");
-			 }
-			 //then loging them in using passport.authenticate (2)
-			 passport.authenticate("local", { session: false })(req, res, () => {
-				 res.redirect("/login");
-		});
-	 }
-
-	 )
+router.post("/register", async (req, res) => {
+	let newStaff = new Staff({username: req.body.username, name: req.body.name, role: req.body.role});
+	try {
+		let createdStaff = await Staff.register(newStaff, req.body.password);
+ 		passport.authenticate("local", { session: false })(req, res, () => {
+			res.redirect("/login");
+	 });
+	} catch(err) {
+		console.log(err);
+	}
 });
 
 router.get("/login", (req, res) => {
 	res.render("login");
 });
 
-//handling login logic
-//using middleware to call authenticate method
+// Handling login logic
+// Using middleware to call authenticate method
 router.post("/login", passport.authenticate("local",
-    {
-        successRedirect: "/home",
-        failureRedirect: "/login"
-    }
-    ), function(req,res){
-});
+  {
+  	successRedirect: "/home",
+    failureRedirect: "/login"
+  }
+));
 
-//Logout Route
-router.get("/logout", (req,res) => {
-    req.logout();
-    res.redirect("/");
+// Logout route
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
 });
 
 module.exports = router;

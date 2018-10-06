@@ -29,24 +29,29 @@
           </div>
         </div>
         <ul class="navbar-nav ml-auto text-center">
-
-          <% if(!currentUser){ %>
+          <% if(!currentUser) { %>
           <li class="nav-item">
             <a class="nav-link" href="/register">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <% } else{ %>
-            <li class="nav-item">
-              <a class="nav-link" href="/patients">All Patients</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/patients/new">New Patient</a>
-            </li>
-            <li class="nav-item">
-           <a class="nav-link" href="/logout">Logout from <%= currentUser.username %></a>
-           </li> 
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/patients">All Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/patients/new">New Patient</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Signed in as: <%= currentUser.username %>
+            </a>
+            <div class="bg-dark dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/home">Dashboard</a>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </li>
           <% } %>
         </ul>
       </div>

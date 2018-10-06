@@ -4,15 +4,12 @@ const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const flash = require("connect-flash");
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const passportLocalMongoose = require("passport-local-mongoose");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
-
-//Passport setup
-const passport = require("passport");
-//enable login method using local strategy
-const localStrategy = require("passport-local");
-const passportLocalMongoose = require("passport-local-mongoose");
 
 // General setup
 app.set("view engine", "ejs");
@@ -29,11 +26,11 @@ const Staff = require("./models/staff");
 const Patient = require("./models/patient");
 const Log = require("./models/log");
 
-//Passport Configuration
+//Passport configuration
 app.use(require("express-session")({
-        secret : "BioEng18 WebDev",
-        resave : false,
-        saveUninitialized : false
+  secret : "BioEng18 WebDev",
+  resave : false,
+  saveUninitialized : false
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -41,11 +38,11 @@ passport.use(new localStrategy(Staff.authenticate()));
 passport.serializeUser(Staff.serializeUser());
 passport.deserializeUser(Staff.deserializeUser());
 
-//this needs to be put before all routes
-//middleware so that req.user will be available in every single page
-app.use(function(req,res,next){
-   res.locals.currentUser = req.user;
-    next();
+// This needs to be put before routes
+// Middleware so that req.user will be available in every single page
+app.use((req, res, next) => {
+  res.locals.currentUser = req.user;
+  next();
 });
 
 // Require routes
@@ -59,15 +56,6 @@ app.use(baseRoutes);
 app.use(authRoutes);
 app.use("/patients", patientRoutes);
 app.use("/patients/:patient_id/logs", logRoutes);
-
-
-//this needs to be put before auth routes
-//middleware so that req.user will be available in every single template
-app.use(function(req,res,next){
-   res.locals.currentUser = req.user;
-    next();
-});
-
 
 app.get("*", (req, res) => {
 	res.redirect("/");

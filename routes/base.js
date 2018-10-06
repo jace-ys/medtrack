@@ -9,15 +9,14 @@ router.get("/", (req, res) => {
 	res.render("landing");
 });
 
-//middleware to check if user is logged in
-function isLoggedIn(req,res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-
-    res.redirect("/");
-
-}
+// Middleware to check if user is logged in
+function isLoggedIn(req,res, next) {
+  if(req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 router.get("/home", isLoggedIn, async (req, res) => {
 	try {

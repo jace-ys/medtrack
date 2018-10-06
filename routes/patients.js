@@ -4,15 +4,14 @@ const Log = require("../models/log");
 const express = require("express");
 const router = express.Router();
 
-//middleware to check if user is logged in
-function isLoggedIn(req,res, next){
-    if(req.isAuthenticated()){
-        return next();
-    }
-
-    res.redirect("/");
-
-}
+// Middleware to check if user is logged in
+function isLoggedIn(req,res, next) {
+  if(req.isAuthenticated()) {
+    next();
+  } else {
+    res.redirect("/login");
+  }
+};
 
 router.get("/", isLoggedIn, async (req, res) => {
 	try {
