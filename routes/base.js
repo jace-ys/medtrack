@@ -1,18 +1,21 @@
+// Require dependencies
 const Staff = require("../models/staff");
 const Patient = require("../models/patient");
 const Log = require("../models/log");
 const express = require("express");
 const router = express.Router();
 
-// Routes
+// Landing page route
 router.get("/", (req, res) => {
 	res.render("landing");
 });
 
+// Home route (dashboard)
 router.get("/home", isLoggedIn, async (req, res) => {
 	try {
-		let doctor = await Staff.findOne({username: req.user.username}).populate("patients").exec();
-		res.render("home", {patients: doctor.patients});
+		// Find user and populate patients array
+		let staff = await Staff.findOne({username: req.user.username}).populate("patients").exec();
+		res.render("home", {patients: staff.patients});
 	} catch(err) {
 		console.log(err);
 	}

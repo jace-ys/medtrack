@@ -36,8 +36,8 @@ passport.use(new localStrategy(Staff.authenticate()));
 passport.serializeUser(Staff.serializeUser());
 passport.deserializeUser(Staff.deserializeUser());
 
+// Middleware so that req.user will be available in every template
 // This needs to be put before routes
-// Middleware so that req.user will be available in every single page
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
