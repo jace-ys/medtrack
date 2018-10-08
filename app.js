@@ -3,7 +3,6 @@ const path = require("path");
 const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
-const flash = require("connect-flash");
 const passport = require("passport");
 const localStrategy = require("passport-local");
 const passportLocalMongoose = require("passport-local-mongoose");
@@ -16,7 +15,6 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
-app.use(flash());
 
 // MongoDB setup
 mongoose.connect(process.env.MLAB_URI, {useNewUrlParser: true});
@@ -26,7 +24,7 @@ const Staff = require("./models/staff");
 const Patient = require("./models/patient");
 const Log = require("./models/log");
 
-//Passport configuration
+// Passport configuration
 app.use(require("express-session")({
   secret : "BioEng18 WebDev",
   resave : false,

@@ -9,7 +9,17 @@ router.get("/", (req, res) => {
 	res.render("landing");
 });
 
-// Middleware to check if user is logged in
+router.get("/home", isLoggedIn, async (req, res) => {
+	try {
+		let doctor = await Staff.findOne({username: req.user.username}).populate("patients").exec();
+		res.render("home", {patients: doctor.patients});
+	} catch(err) {
+		console.log(err);
+	}
+});
+
+// Middleware
+// Check if user is logged in
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()) {
     next();
@@ -17,14 +27,5 @@ function isLoggedIn(req, res, next) {
     res.redirect("/login");
   }
 };
-
-router.get("/home", isLoggedIn, async (req, res) => {
-	try {
-		let patients = await Patient.find();
-		res.render("home", {patients: patients});
-	} catch(err) {
-		console.log(err);
-	}
-});
 
 module.exports = router;

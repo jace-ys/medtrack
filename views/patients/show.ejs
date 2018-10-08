@@ -8,7 +8,9 @@
         <div class="col-md-3">
           <div class="img-section">
             <img class="card-img" src="<%= patient.photo %>" alt="Patient's photo">
+            <% if(currentUser && patient.doctor.id.equals(currentUser._id)) { %>
             <a class="mt-4 btn btn-sm btn-block btn-warning" href="/patients/<%= patient._id %>/edit">Edit</a>
+            <% } %>
           </div>
         </div>
         <div class="col-md-9">
@@ -19,10 +21,9 @@
               <li><p class="card-text"><strong>Gender:</strong> <%= patient.gender %></p></li>
             </ul>
             <ul class="list-unstyled">
-              <li><p class="card-text"><strong>Doctor:</strong> <%= patient.doctor %></p></li>
+              <li><p class="card-text"><strong>Doctor:</strong> <%= patient.doctor.name %></p></li>
               <li><p class="card-text"><strong>Ward:</strong> <%= patient.ward %></p></li>
               <li><p class="card-text"><strong>Admitted on:</strong> <%= patient.admitted.toDateString() %></p></li>
-              <li><p class="card-text"><strong>Last check-up:</strong> <%= patient.admitted.toDateString() %></p></li>
             </ul>
             <p><strong>Diagnosis:</strong> <%= patient.diagnosis %></p>
           </div>
@@ -36,9 +37,11 @@
         <% let log = patient.logs[i] %>
         <li class="list-group-item list-group-item-primary">
           <p><%= log.content %></p>
-          <small class="text-muted">Submitted by: Jace</small><br>
+          <small class="text-muted">Submitted by: <%= log.submittedBy.name %></small><br>
           <small class="text-muted"><%= log.createdAt.toDateString() %>, <%= log.createdAt.toLocaleTimeString() %></small>
+          <% if(currentUser && log.submittedBy.id.equals(currentUser._id)) { %>
           <a href="/patients/<%= patient._id %>/logs/<%= log._id %>/edit"><i class="fa fa-edit float-right text-danger"></i></a>
+          <% } %>
         </li>
         <% } %>
       </ul>

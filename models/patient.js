@@ -8,7 +8,7 @@ const patientSchema = new mongoose.Schema({
 	ward: String,
 	diagnosis: String,
   admitted: { type: Date, default: Date.now },
-  doctor: {
+	doctor: {
     id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Staff"
