@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><!--  go into w3schools search for meta viewport -->
+  <title>MedTrack</title>
+  <link rel="icon" type="image/ico" href="/images/logo.ico">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+  <link rel="stylesheet" href="/stylesheets/common.css">
+</head>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/home">MedTrack</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="input-group my-4 my-lg-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <ul class="navbar-nav ml-auto text-center">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">All Patients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container content">
+      <div class="text-center">
+        <h1>New Patient Details</h1>
+      </div>
+      <form class="mx-auto mt-4 col-12 col-md-8 col-lg-6" action="/patients" method="POST">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="photo">Photo</label>
+          <input type="url" class="form-control" name="photo" placeholder="Photo">
+        </div>
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col">
+              <label for="gender">Age</label>
+              <input type="number" class="form-control" name="age" placeholder="Age">
+            </div>
+            <div class="col">
+              <label for="gender">Gender</label>
+              <select class="form-control" name="gender">
+                <option selected disabled>Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="ward">Ward</label>
+          <input type="text" class="form-control" name="ward" placeholder="Ward">
+        </div>
+        <div class="form-group">
+          <label for="diagnosis">Diagnosis</label>
+          <textarea type="text" class="form-control" name="diagnosis" rows="3" placeholder="Enter diagnosis here"></textarea>
+        </div>
+        <button class="btn btn-danger btn-block my-4" type="submit">Submit</button>
+      </form>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MedTrack</title>
+    <link rel="icon" type="image/ico" href="/images/logo.ico">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700">
+    <link rel="stylesheet" href="/stylesheets/common.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/home">MedTrack</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="input-group my-4 my-lg-2 col-lg-6">
+            <input type="text" class="form-control" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-danger" type="button"><i class="fa fa-search"></i></button>
+            </div>
+          </div>
+          <ul class="navbar-nav ml-auto text-center">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">All Patients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New Patient</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Logout</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container content">
+      <div class="text-center mb-4">
+        <h1>All Patients</h1>
+      </div>
+      <div class="patient-grid">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 col-sm-6 col-12 mb-4">
+            <div class="card border-danger">
+              <div class="card-header">Patient Ward</div>
+              <img class="card-img-top" src="https://cdn2.iconfinder.com/data/icons/lil-faces/230/lil-face-13-512.png" alt="Patient's photo">
+              <div class="card-body">
+                <h5 class="card-title">Rachel Tan</h5>
+                <p class="card-text">Fever</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Admitted on: Sunday</small>
+                <div class="mt-2">
+                  <a class="btn btn-sm btn-block btn-danger" href="#">View</a>
+                  <a class="btn btn-sm btn-block btn-warning" href="#">Edit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
